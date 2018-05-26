@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		a{
+			text-decoration: none;
+		}
+		.goods_body{
+			width: 1200px;
+			overflow: hidden;
+			margin: 0 auto;
+		}
+		.item{
+			width: 224px;
+			height: 403px;
+			float: left;
+			margin: 8px;
+		}
+		.item img{
+			width: 224px;
+			height: 340px;
+		}
+		.item p{
+		    font-size: 16px;
+		    color: #f36;
+		    margin-right: 2px;
+		}
+		.item span{
+			display: block;
+		    font-size: 14px;
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    color: #999;
+		}
+		.item span i{
+			display: inline-block;
+		    width: 38px;
+		    height: 20px;
+		    margin-right: 4px;
+		    background: url(http://s2.mogucdn.com/p2/170314/133753108_5996kakhb5c3kl74gjg24c2h24l48_90x42.png) no-repeat center;
+		    background-size: contain;
+		    vertical-align: sub;
+		}
+	</style>
+	<body>
+		<div class="goods_body">
+		</div>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript" src="js/new_file.js" ></script>
+	<script>
+		ajaxGet("/mls").then(function(res){
+			var resp = res.substr(5,res.length-5);
+			var resp = resp.substr(0,resp.length-1);
+			var response = JSON.parse(resp);
+			
+			response.data.list.forEach(function(item){
+			// a标签为按钮 带有商品id
+			var goods = `<a class="item" href="##" data-id="${item.userId}">
+							<img src="${item.image}"/>
+							<p>￥${item.price}</p>
+							<span><i></i>${item.title}</span>
+						</a>`;
+			//插入页面
+				$(".goods_body").append(goods);
+			})
+		})
+	</script>
+</html>

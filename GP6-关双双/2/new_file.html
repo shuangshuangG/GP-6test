@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.banner{
+			width: 1130px;
+			height: 300px;
+			position: relative;
+			margin: 0 auto;
+		}
+		.banner img{
+			width: 1130px;
+			height: 300px;
+			position: absolute;
+		}
+		.banner button{
+			position: absolute;
+			z-index: 2;
+			height: 50px;
+			width: 100px;
+			top: 120px;
+		}
+		.banner button:nth-of-type(2){
+			right: 0;
+		}
+	</style>
+	<body>
+		<div class="banner">
+			<img src="https://img.zcool.cn/community/011c265b07ce7da8012181b0f79869.jpg@1380w"/>
+			<img src="https://img.zcool.cn/community/0199e35b07ccdba8012043d8be2c5c.jpg@1380w"/>
+			<img src="https://img.zcool.cn/community/01db6d5b05a0cfa801218cf4e639d8.png@1380w"/>
+			<img src="https://img.zcool.cn/community/0199e35b07ccdba8012043d8be2c5c.jpg@1380w"/>
+			<img src="https://img.zcool.cn/community/01663f5b05a0afa801218cf48784a7.png@1380w"/>
+			<button id="prevBtn">prev</button>
+			<button id="nextBtn">next</button>
+		</div>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript" src="new_file.js" ></script>
+	<script>
+	    new $.fn.banner({
+	    	animate:"slide",
+			nextBtn:$("#nextBtn"),
+			prevBtn:$("#prevBtn")
+		});
+	</script>
+</html>
